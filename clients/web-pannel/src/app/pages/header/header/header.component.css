@@ -1,0 +1,16 @@
+header{
+    background-color: rgb(9, 95, 175);
+    height: 60px;
+    width: 100%;
+    padding: auto;
+}
+
+header a{
+    display: inline;
+    float: right;
+    margin: 15px;
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
+    cursor: pointer;
+}

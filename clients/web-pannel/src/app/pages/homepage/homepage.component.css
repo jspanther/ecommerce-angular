@@ -1,0 +1,68 @@
+.banner img{
+    width: 100%;
+    height: 450px;
+}
+
+header{
+    background-color: #143A51;
+    height: 60px;
+    width: 100%;
+    padding: 17px;
+    text-align: center;
+}
+
+header a{
+    display: inline;
+    margin: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+}
+header h4{
+    float: left;
+    color: white;
+    font-weight: 800;
+    margin-left: auto;
+    
+}
+.card{
+    padding: 20px 20px 0px;
+    border: 1px solid black;
+    margin: 20px;
+}
+.card img{
+    width: 100%;
+    height: 250px;
+}
+
+.card h4{
+    font-weight: 800;
+    margin: auto auto 10px auto; 
+}
+.product{
+    margin-top: 20px;
+    display: flex;
+}
+.price{
+    margin-left: auto;
+   
+}
+.product a{
+    height: 50px;
+    background-color: rgb(20, 58, 81);
+    color: white;
+    padding: 15px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.price p{
+    height: 50px;
+    width: 100%;
+    padding: 15px;
+}
+.row{
+    margin-right: 0px;
+    margin-left: 0px;
+}
