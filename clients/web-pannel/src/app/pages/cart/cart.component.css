@@ -1,0 +1,44 @@
+.cart{
+    width: 800px;
+    margin: auto;
+    height: auto;
+    padding: 10px;
+}
+.card1{
+    padding: 16px;
+}
+.inside-cart{
+    display: block;
+
+}
+.inside-cart img{
+float: right;
+width: 280px;
+  
+}
+.amount{
+    display: flex;
+}
+.amount p:nth-child(2){
+    margin-left: auto;
+}
+
+
+.footer{
+
+    display: flex;
+    margin-top: 20px;
+}
+
+.left{
+    border: 1px solid lightgray;
+    width: 50%;
+    padding-top: 12px;
+    text-align: center;
+}
+.right{
+    border: 1px solid lightgray;
+    width: 50%;
+    padding-top: 12px;
+    text-align: center;
+}

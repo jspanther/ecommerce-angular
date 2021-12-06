@@ -2,13 +2,13 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
-const User = require('./model/student')
+const User = require('../model/userSchema')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
 
 router.post('/login',(req,res,next)=>{
-    User.find({email:req.body.email}).exec() 
+    User.find({email:req.body.email}).select('+password').exec() 
     .then(user =>{
         if(user.length < 1){
             return res.status(401).json({
@@ -29,7 +29,7 @@ router.post('/login',(req,res,next)=>{
                     mobile:user[0].mobile,
                     userType:user[0].userType
                 },
-                "this is login api",
+                "Mohit@123",  //secerete key
                 {
                     expiresIn:'24h'   //token expired time in hours
                 }

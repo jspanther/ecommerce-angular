@@ -33,6 +33,21 @@ input{
 .register a{
     font-size: 18px;
 }
+.eye{
+    position: absolute;
+    right: 33px;
+    bottom: 251px;
+    cursor: pointer;
+}
+.eye1{
+    position: absolute;
+    right: 33px;
+    bottom: 157px;
+    cursor: pointer;
+}
+label{
+    margin-top: 10px;
+}
 
 @media (max-width:768px) {
     .container{

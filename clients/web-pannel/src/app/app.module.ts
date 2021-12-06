@@ -11,6 +11,9 @@ import { LoginComponent } from './pages/login/login/login.component';
 import { RegisterComponent } from './pages/register/register/register.component';
 import { ForgetPasswordComponent } from './pages/forget-password/forget-password.component';
 import {  HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './pages/footer/footer.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,11 +23,15 @@ import {  HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    FooterComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
     ToastrModule.forRoot(),

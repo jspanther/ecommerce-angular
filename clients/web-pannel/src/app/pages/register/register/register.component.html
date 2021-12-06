@@ -1,27 +1,41 @@
 <div class="container">
     <div class="card">
+      <form [formGroup]="signupForm">
         <div class="box">
             <label for="">Name</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" formControlName="name">
         </div>
         <div class="box">
             <label for="">Mobile Number</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" formControlName="mobile">
         </div>
         <div class="box">
             <label for="">Email</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" formControlName="email">
         </div>
       <div class="box">
         <label for="">Password</label>
-        <input type="password" class="form-control">
+        
+        <div style="display: flex;">
+          <input [type]="showEye ? 'text' : 'password'" class="form-control" formControlName="password">
+          <div class="eye">
+              <i  [class]=" showEye ? 'fa fa-eye hide' : 'fa fa-eye-slash hide' " (click)="showHidePassword()"></i>
+          </div>
+          
+      </div>
       </div>
       <div class="box">
         <label for="">Confirm Password</label>
-        <input type="password" class="form-control">
+        <div style="display: flex;">
+          <input [type]="showEye ? 'text' : 'password'" class="form-control">
+          <div class="eye1">
+              <i  [class]=" showEye ? 'fa fa-eye hide' : 'fa fa-eye-slash hide' " (click)="showHidePassword()"></i>
+          </div>
+          
       </div>
-        
-        <button type="submit" class="btn" > Register</button>
+      </div>
+    </form>
+        <button type="submit" class="btn" (click)="signUp()" > Register</button>
         <div class="register">
             <a routerLink="/logIn">Already have an account? LogIn</a>
         </div>

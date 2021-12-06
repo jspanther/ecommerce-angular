@@ -1,11 +1,20 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
-const User = require('./model/student');
+const User = require('../model/userSchema');
 const bcrypt= require('bcrypt')
+const auth = require('../Auth/auth')
+const cloudinary = require('cloudinary').v2;
+
+cloudinary.config({ 
+	cloud_name: 'nathues', 
+	api_key: '624857266517746', 
+	api_secret: 'Qo30wcF5FWUdSS_D-8h-YHv7VXk',
+	secure: true
+  });
 
 //get all user
-router.get('/', (req, res, next) => {
+router.get('/',auth, (req, res, next) => {
 	User.find()
 		.then((result) => {
 			res.status(200).json({
@@ -25,7 +34,7 @@ router.get('/', (req, res, next) => {
 
 //get user by id
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id',auth, (req, res, next) => {
 	User.findById(req.params.id)
 		.then((result) => {
 			res.status(200).json({
@@ -46,6 +55,10 @@ router.get('/:id', (req, res, next) => {
 
 //create new user
 router.post('/', (req, res, next) => {
+	// const file = req.files.image
+	// cloudinary.uploader.upload(file.tempFilePath,(err,result)=>{
+	// 	console.log(result.url);
+	// })
   bcrypt.hash(req.body.password,10,(err,hash)=>{
     if(err){
       res.status(500).json({
@@ -82,7 +95,7 @@ router.post('/', (req, res, next) => {
 });
 
 //delete user by id
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id',auth, (req, res, next) => {
 	User.remove({ _id: req.params.id })
 		.then((result) => {
 			res.status(200).json({
@@ -99,7 +112,7 @@ router.delete('/:id', (req, res, next) => {
 
 //update user
 
-router.put('/:id', (req, res, next) => {
+router.put('/:id',auth, (req, res, next) => {
 	User.findOneAndUpdate(
 		{ _id: req.params.id },
 		{
