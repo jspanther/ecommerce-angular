@@ -1,0 +1,17 @@
+.row{
+    margin: 20px;
+}
+.profile-image img{
+    width: 200px;
+    height: 200px;
+    border:1px solid black;
+    border-radius: 50%;
+
+}
+.card{
+    max-width: 900px;
+    padding: 30px;
+}
+.btn{
+    margin: 10px;
+}

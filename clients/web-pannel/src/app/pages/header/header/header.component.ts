@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { CommonService } from 'src/app/provider/common.service';
 
 @Component({
@@ -8,10 +9,13 @@ import { CommonService } from 'src/app/provider/common.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private service:CommonService,private router:Router) { }
+  isLoggedIn$:Observable<string>
+  constructor(public service:CommonService,private router:Router) { }
 
   ngOnInit(): void {
+    this.isLoggedIn$  = this.service.isLogedIn
+    // console.log(this.isLoggedIn$.source._value); 
+    
   }
   login(){
     this.router.navigate(['/logIn'])

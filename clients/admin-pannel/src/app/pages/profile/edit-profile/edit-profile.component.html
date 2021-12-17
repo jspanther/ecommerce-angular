@@ -1,0 +1,45 @@
+<div class="container1">
+
+    
+
+    <div class="title">
+        <h3>Edit Profile</h3>
+    </div>
+    <hr>
+    <form [formGroup]="editForm">
+        <div class="card" style="margin: auto;text-align: center;">
+            <div class="profile-image" >
+                <!-- <img src="assets/images/logo (1).jpg" alt="" formControlName="image"> -->
+                <input type="file"  (change)="uploadImg($event)" formControlName="image">
+                <img [src]="imageSrc" *ngIf="imageSrc" style="height: 200px; width:400px">
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="">User Name</label>
+                </div>
+                <div class="col-md-1">:</div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" formControlName="name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="">Mobile No.</label>
+                </div>
+                <div class="col-md-1">:</div>
+                <div class="col-md-6"><input type="text" class="form-control"  formControlName="mobile"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="">Email</label>
+                </div>
+                <div class="col-md-1">:</div>
+                <div class="col-md-6"><input type="text" class="form-control"  formControlName="email"></div>
+            </div>
+            <div>
+                <button class="btn" routerLink="/dashboard">Back</button>
+                <button class="btn" (click)="editProfile()">Save</button>
+            </div>
+        </div>
+    </form>
+</div>

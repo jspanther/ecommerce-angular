@@ -1,0 +1,10 @@
+.productImage img{
+    width: auto;
+    height: 60px;
+
+}
+.addbutton{
+    display: flex;
+    float: right;
+    margin-bottom: 30px;
+}

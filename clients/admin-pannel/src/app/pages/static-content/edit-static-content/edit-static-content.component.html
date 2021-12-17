@@ -1,0 +1,34 @@
+
+<div class="container1">
+
+    
+
+    <div class="title">
+        <h3>{{staticData?.pageKey}}</h3>
+    </div>
+    <hr>
+    <div class="card">
+        <div class="row">
+            <div class="col-md-3">
+                <label for="">Page</label>
+            </div>
+            <div class="col-md-1">:</div>
+            <div class="col-md-6">{{staticData?.pageKey}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3" *ngIf="contentData">
+                <label for="">Content</label>
+            </div>
+            <div class="col-md-1">:</div>
+            <div class="col-md-6">
+                <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="contentData"></angular-editor>
+
+            </div>
+        </div>
+        <div>
+            <button class="btn" routerLink="/static-management">Back</button>
+            <button class="btn" (click)="upadateContent()">Save</button>
+        </div>
+    </div>
+    
+</div>

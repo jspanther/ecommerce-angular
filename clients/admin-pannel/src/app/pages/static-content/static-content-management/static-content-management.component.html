@@ -1,0 +1,29 @@
+<div class="container1" >
+
+    
+
+    <div class="title">
+        <h3>Static Content Management</h3>
+    </div>
+    <hr>
+  <div  style="margin-top: 50px;">
+    <div class="card" *ngFor="let item of staticListArray">
+        <div style="display: flex;" (click)="viewStatic(item?.pageKey)">
+            <h3>{{item?.pageKey}}</h3>
+            <i  class="fas fa-arrow-right"></i>
+        </div>
+    </div>
+    <!-- <div class="card" style="margin-top: 30px;" routerLink="/change-password">
+        <div style="display: flex;" >
+            <h3>Privacy & Policy</h3>
+            <i class="fas fa-arrow-right"></i>
+        </div>
+    </div>
+    <div class="card" style="margin-top: 30px;" routerLink="/change-password">
+        <div style="display: flex;" >
+            <h3>Terms & Condition</h3>
+            <i class="fas fa-arrow-right"></i>
+        </div>
+    </div> -->
+  </div>
+</div>

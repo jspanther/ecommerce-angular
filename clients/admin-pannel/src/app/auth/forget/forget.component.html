@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="card">
+        <div style="margin: auto;">
+            <h3>Forget Password</h3>
+        </div>
+        <hr>
+        <form [formGroup]="forgotForm">
+            <label for="">Email</label>
+             <input type="text"  class="form-control" formControlName="email" placeholder="Enter your email" formControlName= "email">
+         </form>
+             <button type="submit" class="btn" (click)="forgotPassword()" > Submit </button>
+       
+    </div>
+    </div>

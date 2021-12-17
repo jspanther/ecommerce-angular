@@ -1,0 +1,89 @@
+<div class="container1">
+    
+    <!-- title start -->
+    
+        <div class="title">
+            <h3>Add Product</h3>
+        </div>
+        <hr>
+        <div class="card">
+            <form [formGroup]="productForm">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="">Product Name</label>
+                </div>
+                <div class="col-md-1">:</div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="" id="" placeholder="Product name" formControlName="productName">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="">Product Category</label>
+                </div>
+                <div class="col-md-1">:</div>
+                <div class="col-md-6">
+                   <select name="" id="" class="form-control" formControlName="category">
+                       <option value="" selected>Select</option>
+                       <option value="Mobile">Mobile</option>
+                       <option value="Men Fashion">Men Fashion</option>
+                       <option value="Women Fashion">Women Fashion</option>
+                       <option value="Computer">Computer</option>
+                       <option value="Watch">Watch</option>
+                   </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="">MRP</label>
+                </div>
+                <div class="col-md-1">:</div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="" id="" placeholder="MRP" formControlName="mrp">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="">Selling Price</label>
+                </div>
+                <div class="col-md-1">:</div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="" id="" placeholder="Selling Price" formControlName="sellingPrice">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="">Discount</label>
+                </div>
+                <div class="col-md-1">:</div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="" id="" placeholder="Selling Price" formControlName="discounts">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="">Description</label>
+                </div>
+                <div class="col-md-1">:</div>
+                <div class="col-md-6">
+                   <textarea name="" id="" cols="30" rows="10" class="form-control" formControlName="discription"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="">Product Image</label>
+                </div>
+                <div class="col-md-1">:</div>
+                <div class="col-md-6">
+                   <input type="file"  (change)="uploadImg($event)" formControlName="image">
+                   <img [src]="imageSrc" *ngIf="imageSrc" style="height: 200px; width:400px">
+                </div>
+            </div>
+        </form>
+        <div>
+            <button class="btn" routerLink="/product-management">Cancel</button>
+            <button class="btn" (click)="addProduct()">Add</button>
+        </div>
+        </div>
+
+</div>

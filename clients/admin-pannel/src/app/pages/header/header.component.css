@@ -1,0 +1,19 @@
+.myheader{
+    width: auto;
+    /* background-color: #082755; */
+    background-color: #193256;
+
+    color: white;
+    height: 80px;
+    /* margin-left: 380px; */
+}
+.myheader img{
+    height: 80px;
+    width: 380px;
+}
+.myheader i{
+    margin-left: 20px;
+    font-size: 30px;
+    color: white;
+    font-weight: 800;
+}

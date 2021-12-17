@@ -12,6 +12,7 @@ import { CommonService } from 'src/app/provider/common.service';
 export class LoginComponent implements OnInit {
   showEye: boolean=false;
   loginForm:FormGroup
+  loggedIn:boolean=false
   constructor(private router:Router,private service:CommonService) { }
 
   ngOnInit(): void {
@@ -25,17 +26,33 @@ export class LoginComponent implements OnInit {
     })
   }
   login(){
-    let url=""
     let data= {
       email:this.loginForm.value.email,
-      password:this.loginForm.value.password
+      password:this.loginForm.value.password,
+      
     }
-    this.service.postApi(url,data,1).subscribe(res=>{
+    this.service.showSpinner()
+    this.service.postApi('user/login',data,0).subscribe(res=>{
+      console.log(res);
+      
+      if(res['statusCode']==200){
+        this.service.hideSpinner()
+        this.service.loggedIn.next('LOGGED_IN')
+        this.loggedIn=true;
+        localStorage.setItem('token',res['data'].token)
+        this.service.succMessage('Login Successfully')
+        this.router.navigate(['/home'])
+      }
+      else{ 
+        this.service.hideSpinner()
+        this.service.errorMessage(res['message'])
+      }
+    },(err)=>{
       this.service.hideSpinner()
-      this.service.succMessage('Login Successfully')
-
-    })
-    this.router.navigate(['/home'])
+      this.service.errorMessage('Invalid Credentional')
+    }
+    
+    )  
   }
   
   forget(){

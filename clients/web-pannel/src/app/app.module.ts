@@ -14,6 +14,8 @@ import {  HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './pages/footer/footer.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VerifyUserComponent } from './pages/verify-user/verify-user.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     ForgetPasswordComponent,
     FooterComponent,
-    CartComponent
+    CartComponent,
+    VerifyUserComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

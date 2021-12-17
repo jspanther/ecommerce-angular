@@ -1,0 +1,48 @@
+<div *ngIf= "service.isLoggedIn()">
+    <div id="sidebar" style="display: block;">
+        <div class="myheader">
+            <div style="margin-bottom: 45px;">
+                <div class="admin-image">
+                    <img src="assets/images/logo (1).jpg" alt="">
+                    <p>Admin</p>
+                   
+                 </div>
+            </div>
+            <hr>
+            <div class="items">
+                <i class="fas fa-tachometer-alt"></i>
+                <a routerLink="/dashboard">Dashboard</a>
+            </div>
+            <div class="items">
+                <i class="fas fa-users"></i>
+                <a routerLink="/user-management">User Management</a>
+            </div>
+            <div class="items">
+                <i class="fas fa-users"></i>
+                <a routerLink="/subadmin-management">Sub-Admin Management</a>
+            </div>
+            <div class="items">
+                <i class="fab fa-product-hunt"></i>
+                <a routerLink="/product-management">Product Management</a>
+            </div>
+            <div class="items">
+                <i class="fas fa-image"></i>
+                <a routerLink="/banner-management">Banner Management</a>
+            </div>
+            <div class="items">
+                <i class="far fa-address-card"></i>
+                <a routerLink="/static-management">Static Content Management</a>
+            </div>
+            <div class="items">
+                <i class="far fa-address-card"></i>
+                <a routerLink="/setting">Setting</a>
+            </div>
+            <div class="items">
+                <i class="fas fa-sign-out"></i>
+                <a (click)="service.logOut()">Log Out</a>
+            </div>
+            
+           
+        </div>
+    </div>
+</div>

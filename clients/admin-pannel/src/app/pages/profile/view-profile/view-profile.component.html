@@ -1,0 +1,39 @@
+<div class="container1">
+
+    
+
+    <div class="title">
+        <h3>Profile</h3>
+    </div>
+    <hr>
+    <div class="card" style="margin: auto;text-align: center;">
+        <div class="profile-image">
+            <img src="assets/images/logo (1).jpg" alt="">
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label for="">User Name</label>
+            </div>
+            <div class="col-md-1">:</div>
+            <div class="col-md-6">{{userData?.name}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label for="">Mobile No.</label>
+            </div>
+            <div class="col-md-1">:</div>
+            <div class="col-md-6">{{userData?.mobile}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label for="">Email</label>
+            </div>
+            <div class="col-md-1">:</div>
+            <div class="col-md-6">{{userData?.email}}</div>
+        </div>
+        <div>
+            <button class="btn" routerLink="/dashboard">Back</button>
+            <button class="btn" (click)="editProfile(userData?._id)">Edit</button>
+        </div>
+    </div>
+</div>

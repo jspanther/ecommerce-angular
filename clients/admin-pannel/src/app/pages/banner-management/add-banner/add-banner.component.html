@@ -1,0 +1,28 @@
+<div class="container1">
+    
+    <!-- title start -->
+    
+        <div class="title">
+            <h3>Add Banner</h3>
+        </div>
+        <hr>
+        <div class="card">
+            <form [formGroup]="bannerForm">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="">Banner Image</label>
+                </div>
+                <div class="col-md-1">:</div>
+                <div class="col-md-6">
+                   <input type="file"  (change)="uploadImg($event)" formControlName="image">
+                   <img [src]="imageSrc" *ngIf="imageSrc" style="height: 200px; width:400px">
+                </div>
+            </div>
+        </form>
+        <div class="mybutton">
+            <button class="btn" routerLink="/banner-management">Cancel</button>
+            <button class="btn" (click)="addBanner()">Add</button>
+        </div>
+        </div>
+
+</div>

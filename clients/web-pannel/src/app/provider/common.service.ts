@@ -1,20 +1,27 @@
 import { Injectable } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-import {HttpClient, HttpHeaders} from '@angular/common/http'
-import { Observable } from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommonService {
 
-  constructor(private toastr: ToastrService, private spinner:NgxSpinnerService,private httpClient:HttpClient) { }
-  baseUrl=''
+  constructor(private toastr: ToastrService, private spinner:NgxSpinnerService,private httpClient:HttpClient,private router:Router) { }
+  // public baseUrl='https://ecommerce-web-api.herokuapp.com/'
+  public baseUrl="http://localhost:3000/"
+  public webUrl = "http://localhost:4300/"
+  loggedIn= new BehaviorSubject('LOGGED_OUT')
 
+  get isLogedIn(){
+    return this.loggedIn.asObservable()
+  }
 
   //get api function
-  getApi(endPointUrl,isHeader){
+  getApi(endPointUrl,isHeader):Observable<any>{
     var httpHeaders;
     if(isHeader == 0){
       httpHeaders= {
@@ -52,9 +59,11 @@ else{
       'Token': `${localStorage.getItem('token')}`
     })
   }
-  return this.httpClient.post(this.baseUrl+ endPointUrl, httpHeaders)
 }
+return this.httpClient.post(this.baseUrl+endPointUrl,data, httpHeaders)
 }
+
+
 //put api
 putApi(endPointUrl, data, isHeader):Observable<any>{
   var httpHeaders;
@@ -72,8 +81,8 @@ else{
       'Token': `${localStorage.getItem('token')}`
     })
   }
-  return this.httpClient.put(this.baseUrl+ endPointUrl, httpHeaders)
 }
+return this.httpClient.put(this.baseUrl+ endPointUrl,data, httpHeaders)
 }
 
   //Toaster Message
@@ -81,16 +90,26 @@ else{
     this.toastr.success(message);
   }
   errorMessage(message){
-    this.toastr.success(message);
+    this.toastr.error(message);
+  }
+  warnMessage(message){
+    this.toastr.warning(message)
   }
 
   //show spinner
   showSpinner(){
     this.spinner.show()
-    
   }
   hideSpinner(){
     this.spinner.hide()
-    
   }
+
+  public logged(){
+    return localStorage.getItem('token')!= null;
+    }
+  
+    public logOut(){
+      localStorage.removeItem('token')
+      this.router.navigate(['/logIn'])
+    }
 }

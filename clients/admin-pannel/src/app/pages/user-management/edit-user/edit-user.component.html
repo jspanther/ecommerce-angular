@@ -1,0 +1,46 @@
+<div class="container1">
+    
+    <!-- title start -->
+    
+        <div class="title">
+            <h3>Edit User</h3>
+        </div>
+        <hr>
+        <div class="card">
+            <form [formGroup]="userForm">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="">User Name</label>
+                </div>
+                <div class="col-md-1">:</div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="" id="" placeholder="Product name" formControlName="name">
+                </div>
+            </div>
+          
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="">Mobile</label>
+                </div>
+                <div class="col-md-1">:</div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="" id="" placeholder="MRP" formControlName="mobile">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="">Email</label>
+                </div>
+                <div class="col-md-1">:</div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="" id="" placeholder="Selling Price" formControlName="email">
+                </div>
+            </div>
+        </form>
+        <div>
+            <button class="btn" routerLink="/user-management">Cancel</button>
+            <button class="btn" (click)="editUser()">Submit</button>
+        </div>
+        </div>
+
+</div>

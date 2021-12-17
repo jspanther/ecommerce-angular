@@ -1,8 +1,18 @@
-<div class="">
-   <header>
+<div class="" *ngIf="isLoggedIn$ | async as isLoggedIn">
+   <header *ngIf="isLoggedIn=='LOGGED_OUT'">
        <a (click)="login()">LogIn</a>
        <a >Contact Us</a>
        <a >About Us</a>
         <a routerLink="/home">Home</a>
     </header>
 </div>
+
+<div class="" *ngIf="isLoggedIn$ | async as isLoggedIn">
+    <header *ngIf="isLoggedIn=='LOGGED_IN'">
+        <a routerLink="/cart">Cart</a>
+        <a (click)="service.logOut()">logOut</a>
+        <a >Contact Us</a>
+        <a >About Us</a>
+         <a routerLink="/home">Home</a>
+     </header>
+ </div> 

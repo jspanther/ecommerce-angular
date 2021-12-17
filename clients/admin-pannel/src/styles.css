@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+.container1{
+    position: relative;
+    margin: 24px 20px 20px 400px;
+}
+
+.title h3{
+    font-weight: 800;
+}
+
+.btn{
+    background-color: #082755 !important;
+    color: white !important;
+    padding: 8px 24px !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+}
+.form-control{
+    height: 45px !important;
+}
+
+.box{
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.user-data{
+    margin-top: 50px;
+}
+thead tr{
+    background-color: #193256;
+    color: white;
+} 
+.mybutton {
+    margin-top: 30px;
+}
+.second{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+td button{
+   width: auto;
+   font-size: 18px;
+   border-radius: 5px;
+}
