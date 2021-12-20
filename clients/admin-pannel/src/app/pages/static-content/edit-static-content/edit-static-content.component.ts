@@ -25,9 +25,11 @@ export class EditStaticContentComponent implements OnInit {
     let url = `static-content/pageKey=${this.pageKey}`
     this.service.showSpinner()
     this.service.getApi(url,1).subscribe(res=>{
+      console.log(res);
+      
       if(res['statusCode']==200){
         this.staticData = res['data']
-        this.contentData=res['data'].
+        this.contentData=this.staticData.data
         this.service.hideSpinner()
         this.service.succMessage(res['message'])
       }
@@ -39,9 +41,9 @@ export class EditStaticContentComponent implements OnInit {
   }
 
   upadateContent(){
-    let url = `static-content/edit-static/pageKey=${this.pageKey}`
+    let url = `static-content/update-static/${this.pageKey}`
     let data = {
-      pageKey:this.pageKey,
+      // pageKey:this.pageKey,
       data:this.contentData
     }
     this.service.putApi(url,data,1).subscribe(res=>{

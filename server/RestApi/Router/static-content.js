@@ -28,7 +28,7 @@ router.post('/create-static',(req,res)=>{
     })
 })
 
-//get all banner
+//get all static
 router.get('/get-static',(req,res)=>{
     StaticContent.find().then(result=>{
         if (result.length != 0) {
@@ -83,14 +83,17 @@ router.get('/pageKey=:id',adminAuth, (req, res, next) => {
 
 //update banner
 router.put('/update-static/:id', adminAuth, (req, res) => {
+    console.log( req.params.id);
     StaticContent.findOneAndUpdate(
         { pageKey: req.params.id }, { $set: req.body }).then(result => {
+            console.log(result);
             res.status(200).json({
                 statusCode: 200,
                 data: result,
                 message: "Update successfully"
             })
         }).catch(err => {
+            console.log(err);
             res.status(500).json({
                 statusCode: 500,
                 message: "Internal server error",

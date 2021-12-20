@@ -67,7 +67,6 @@ router.get('/userId=:id',adminAuth, (req, res, next) => {
 
 //create new user
 router.post('/create-user',async (req, res) => {
-
 	try{
 		User.findOne({email:req.body.email,status:{$ne:'Delete'}},async (error,result)=>{
 			if(error){
@@ -86,8 +85,8 @@ router.post('/create-user',async (req, res) => {
 			}
 			else{
 				req.body.password = bcrypt.hashSync(req.body.password)
-				req.body.otp = commonfunction.generateOTP()
-				req.body.otpExpiredTime = Date.now()
+				// req.body.otp = commonfunction.generateOTP()
+				// req.body.otpExpiredTime = Date.now()
 				let subject = 'Verify Email'
 				let body = `Dear User\n\n click on link to verify your email ${req.body.webUrl}. If you have not request for this please ignore this mail\n\nBest Regards`
 				
@@ -202,6 +201,40 @@ router.post('/verify-user/:id', async (req,res,next)=>{
 	}
 	
 })
+
+//search filter api
+router.get('/search-user',adminAuth,async (req, res, next) => {
+	// let admin = await User.findOne({_id:req.userId,userType:'Admin'})
+	let admin = await User.findOne({userType:'Admin'})
+
+	if(!admin){
+		return res.status(404).json({
+			statusCode:404,
+			message:"Admin not found"
+		})
+	}
+	// console.log(admin)
+	User.find({status:{$ne:'Delete'},userType:{$ne:'Admin'}})
+		.then((result) => {
+			res.status(200).json({
+				statusCode:200,
+				data: result,
+				totalUser:result.length,
+				message: 'User list found'
+			});
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(401).json({
+				statusCode:401,
+				message: 'Data not found'
+			});
+			res.status(500).json({
+				statusCode:500,
+				message: 'Internal server error'
+			});
+		});
+});
 
 
 module.exports = router;

@@ -12,7 +12,7 @@ const uploadImage = require('./RestApi/Router/upload-image')
 const setPassword = require('./RestApi/Router/forgotPassword')
 const bannerRoute = require('./RestApi/Router/banner')
 const profileRoute = require('./RestApi/Router/profile')
-
+const adminRoute = require('./RestApi/Router/subAdmin')
 const staticContentRoute = require('./RestApi/Router/static-content')
 //connect to mongodb cloud
 // mongoose.connect('mongodb+srv://mohit:Nathues1@cluster0.vof7i.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
@@ -56,6 +56,7 @@ app.use('/password',setPassword)
 app.use('/banner',bannerRoute)
 app.use('/profile',profileRoute)
 app.use('/static-content',staticContentRoute)
+app.use('/admin',adminRoute)
 
 app.use((req,res,next)=>{
     res.status(404).json({

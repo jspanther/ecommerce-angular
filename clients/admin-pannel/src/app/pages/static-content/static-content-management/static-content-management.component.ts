@@ -47,7 +47,7 @@ export class StaticContentManagementComponent implements OnInit {
   }
 
   delete(){
-    let url= "banner/delete-banner/"+this.id
+    let url= "banner/delete-static/"+this.id
     this.service.showSpinner()
    
     this.service.deleteApi(url,{},1).subscribe(res=>{

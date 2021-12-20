@@ -1,1 +1,108 @@
-<p>edit-subadmin works!</p>
+<div class="container1">
+    
+    <!-- title start -->
+    
+        <div class="title">
+            <h3>Edit Admin</h3>
+        </div>
+        <hr>
+        
+        <div class="box">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="">Name</label>
+                        </div>
+                        <div class="col-md-1">:</div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" formControlName="name">
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="">Email</label>
+                        </div>
+                        <div class="col-md-1">:</div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" formControlName="email">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px;">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="">Mobile</label>
+                        </div>
+                        <div class="col-md-1">:</div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" formControlName="mobile">
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="">User Role</label>
+                        </div>
+                        <div class="col-md-1">:</div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" formControlName="userRole">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="width: 1000px;margin: auto;margin-top: 30px;">
+            <table class="table table-hover table-striped table-borderd">
+                <thead>
+                    <tr style="text-align: center;">
+                      <th scope="col">Pages</th>
+                      <th scope="col">Permission</th>
+                   
+                    </tr>
+                  </thead>
+                
+                  <tbody  style="text-align: center;">
+                    <tr>
+                        <td>Dashboard</td>
+                        <td><input type="checkbox" formControlName="dashboardChecked"  (click)="checkboxClick('DASHBOARD',$event.target.checked)"></td>
+                    </tr>
+                    <tr>
+                        <td>User Management</td>
+                        <td><input type="checkbox" formControlName="userChecked" (click)="checkboxClick('USER_MANAGEMENT',$event.target.checked)"></td>
+                    </tr>
+                   
+                   
+                    <tr>
+                        <td>Static Management</td>
+                        <td><input type="checkbox" formControlName="staticChecked"  (click)="checkboxClick('STATIC_CONTENT',$event.target.checked)"></td>
+                    </tr>
+                    <tr>
+                        <td>Banner Management</td>
+                        <td><input type="checkbox" formControlName="bannerChecked"  (click)="checkboxClick('BANNER_MANAGEMENT',$event.target.checked)"></td>
+                    </tr>
+                    <tr>
+                        <td>Product Management</td>
+                        <td><input type="checkbox" formControlName="productChecked"  (click)="checkboxClick('PRODUCT_MANAGEMENT',$event.target.checked)"></td>
+                    </tr>
+                    <tr>
+                        <td>Sub Admin Management</td>
+                        <td><input type="checkbox" formControlName="adminChecked"  (click)="checkboxClick('SUB_ADMIN',$event.target.checked)"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="margin: auto;">
+                <button class="btn" routerLink="/subadmin-management"> Cancel</button>
+                <button class="btn">Save</button>
+            </div>
+        </div>
+        </div>
+    

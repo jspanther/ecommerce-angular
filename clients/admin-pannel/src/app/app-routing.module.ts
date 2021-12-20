@@ -45,7 +45,7 @@ const routes: Routes = [
   {path:"view-product",component:ViewProductComponent,canActivate:[AuthGuard]},
   {path:"edit-product",component:EditProductComponent,canActivate:[AuthGuard]},
   {path:"add-product",component:AddProductComponent,canActivate:[AuthGuard]},
-  //product
+  //admin
   {path:"subadmin-management",component:SubadminListComponent,canActivate:[AuthGuard]},
   {path:"view-admin",component:ViewSubadminComponent,canActivate:[AuthGuard]},
   {path:"edit-admin",component:EditSubadminComponent,canActivate:[AuthGuard]},

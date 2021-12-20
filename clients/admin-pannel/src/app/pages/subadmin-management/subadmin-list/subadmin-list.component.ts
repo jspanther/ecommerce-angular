@@ -11,31 +11,27 @@ export class SubadminListComponent implements OnInit {
   itemsPerPage=5;
   totalItems:any;
   currentPage=1;
-  userListArray=[]
+  adminListArray=[]
   constructor(private service: CommonService,private router:Router) { }
 
   ngOnInit(): void {
-    // this.subAdminList()
+    this.subAdminList()
   }
   
   subAdminList(){
     this.service.showSpinner()
-    let url="user/user-list"
+    let url="admin/admin-list"
     try{
-    this.service.getApi(url,1).subscribe(res=>{
-      console.log(res['statusCode']);
-      
+    this.service.getApi(url,1).subscribe(res=>{ 
       if(res['statusCode'] == 200){
-        this.userListArray=res['data']
-        console.log(this.userListArray);
+        this.adminListArray=res['data']
+        console.log(this.adminListArray);
         this.totalItems= res['totalUser']
         this.service.hideSpinner()
         this.service.succMessage(res['message'])
 
       }
-      else if(res['status'] == 401){
-        console.log("error");
-        
+      else{
         this.service.hideSpinner()
         this.service.errorMessage(res['message'])
       }
@@ -48,13 +44,13 @@ export class SubadminListComponent implements OnInit {
   }
   }
 
-  viewUser(id){
+  viewAdmin(id){
     this.router.navigate(['/view-admin'],{queryParams:{id:id}})
   }
-  editUser(id){
+  editAdmin(id){
     this.router.navigate(['/edit-admin'],{queryParams:{id:id}})
   }
-  deleteUser(id){
+  deleteAdmin(id){
     this.router.navigate(['/user-details'],{queryParams:{id:id}})
   }
   //pagination

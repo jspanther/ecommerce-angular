@@ -7,6 +7,7 @@
         </div>
         <hr>
         
+    <form [formGroup]="userForm">
         <div class="box">
             <div class="row">
                 <div class="col-md-6">
@@ -16,7 +17,7 @@
                         </div>
                         <div class="col-md-1">:</div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" formControlName="name">
                         </div>
                     </div>
                    
@@ -28,7 +29,7 @@
                         </div>
                         <div class="col-md-1">:</div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" formControlName="email">
                         </div>
                     </div>
                 </div>
@@ -41,7 +42,7 @@
                         </div>
                         <div class="col-md-1">:</div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" formControlName="mobile">
                         </div>
                     </div>
                    
@@ -53,7 +54,7 @@
                         </div>
                         <div class="col-md-1">:</div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" formControlName="userRole">
                         </div>
                     </div>
                 </div>
@@ -72,33 +73,38 @@
                 
                   <tbody  style="text-align: center;">
                     <tr>
+                        <td>Dashboard</td>
+                        <td><input type="checkbox" formControlName="dashboardChecked"  (click)="checkboxClick('DASHBOARD',$event.target.checked)"></td>
+                    </tr>
+                    <tr>
                         <td>User Management</td>
-                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox" formControlName="userChecked" (click)="checkboxClick('USER_MANAGEMENT',$event.target.checked)"></td>
                     </tr>
                    
                    
                     <tr>
                         <td>Static Management</td>
-                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox" formControlName="staticChecked"  (click)="checkboxClick('STATIC_CONTENT',$event.target.checked)"></td>
                     </tr>
                     <tr>
                         <td>Banner Management</td>
-                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox" formControlName="bannerChecked"  (click)="checkboxClick('BANNER_MANAGEMENT',$event.target.checked)"></td>
                     </tr>
                     <tr>
                         <td>Product Management</td>
-                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox" formControlName="productChecked"  (click)="checkboxClick('PRODUCT_MANAGEMENT',$event.target.checked)"></td>
                     </tr>
                     <tr>
                         <td>Sub Admin Management</td>
-                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox" formControlName="adminChecked"  (click)="checkboxClick('SUB_ADMIN',$event.target.checked)"></td>
                     </tr>
                 </tbody>
             </table>
             <div style="margin: auto;">
-                <button class="btn"> Cancel</button>
-                <button class="btn">Add</button>
+                <button class="btn" routerLink="/subadmin-management"> Cancel</button>
+                <button class="btn" (click)="addAdmin()">Save</button>
             </div>
         </div>
+    </form>
         </div>
     

@@ -38,6 +38,6 @@ export class ViewStaticContentComponent implements OnInit {
   }
 
   edit(){
-    this.route.navigate(['/edit-static'],{queryParams:{pageKey:this.pageKey}})
+    this.route.navigate(['/edit-static'],{queryParams:{id:this.pageKey}})
   }
 }

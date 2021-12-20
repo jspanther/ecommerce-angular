@@ -16,6 +16,7 @@ import { CartComponent } from './pages/cart/cart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VerifyUserComponent } from './pages/verify-user/verify-user.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { StatiContentComponent } from './pages/stati-content/stati-content.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
     FooterComponent,
     CartComponent,
     VerifyUserComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    StatiContentComponent
   ],
   imports: [
     BrowserModule,
